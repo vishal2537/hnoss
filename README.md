@@ -73,4 +73,10 @@ Now you're all set to explore Hnoss and start making meaningful connections!
 
 ### Preview
 
+**User Authentication and Authorization**: ![Authentication](images/loginpage)
+
+
+
+
+
 <!-- **Note**: Hnoss is a work in progress, and we welcome contributions from the community. Feel free to fork the repository, make your changes, and submit a pull request. Let's build something amazing together! -->
