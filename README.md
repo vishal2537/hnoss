@@ -72,11 +72,24 @@ Now you're all set to explore Hnoss and start making meaningful connections!
 ---
 
 ### Preview
+**Landing Page**: ![Authentication](images/LandingPage.png)
 
-**User Authentication and Authorization**: ![Authentication](images/loginpage)
+**Footer**: ![footer](images/footer.png)
 
+**User Authentication and Authorization**: ![loginpage](images/loginpage.png)
 
+**Home Page**: ![homepage](images/homePage.png)
 
+**Find a date**: ![findadate](images/find-a-date.png)
 
+**Message**: ![message](images/messagePage.png)
 
-<!-- **Note**: Hnoss is a work in progress, and we welcome contributions from the community. Feel free to fork the repository, make your changes, and submit a pull request. Let's build something amazing together! -->
+**Counselling Page**: ![cp](images/counsellingPage.png)
+
+**Profile Page**: ![pp](images/profilePage.png)
+
+**Friend List**: ![pp](images/friendList.png)
+
+**Search Bar**: ![pp](images/searchBar.png)
+
+<!-- **Note**:  -->
