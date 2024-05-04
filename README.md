@@ -1,4 +1,4 @@
-# **HNOSS: Find a perfect date**
+# **HNOSS**: Find a perfect date
 
 Welcome to Hnoss, where social media and dating seamlessly merge to create a unique and engaging web application. Hnoss is not just another dating platform; it's a vibrant community where individuals can connect, interact, and explore meaningful relationships in a dynamic online environment. With its innovative fusion of social media features and dating functionalities, Hnoss provides a versatile platform to meet like-minded individuals and forge connections that matter.
 
@@ -76,7 +76,8 @@ Now you're all set to explore Hnoss and start making meaningful connections!
 
 **Footer**: ![footer](images/footer.png)
 
-**User Authentication and Authorization**: ![loginpage](images/loginpage.png)
+**Login Page**: ![loginpage](images/loginpage.png)
+**Signup Page**: ![signuppage](images/signupPage.png)
 
 **Home Page**: ![homepage](images/homePage.png)
 
