@@ -3,20 +3,41 @@ import Footer from "../components/Footer";
 
 const LandingPage = () => {
   return (
-    <div>
+    <div className="">
       <Navbar />
       <div className="">
-        <a className="relative block group -z-10">
+        <div
+          className="relative block group -z-10"
+          style={{
+            backgroundImage: "url('../src/assets/banner.jpg')",
+            backgroundSize: "cover",
+            backgroundAttachment: "fixed",
+            height: "100vh",
+            width: "100vw",
+          }}
+        >
+          <div className="absolute font-serif top-3/4 left-1/4 transform -translate-x-1/2 -translate-y-1/3 text-white lg:text-6xl font-extrabold sm:text-3xl md:text-4xl">
+            The dating app<br></br> designed to be deleted
+          </div>
+        </div>
+      </div>
+
+      {/* <div className="">
+        <a
+          className="relative block group -z-10 "
+          style={{ backgroundAttachment: "fixed" }}
+        >
           <img
             src="../src/assets/banner.jpg"
             alt="banner"
-            className="object-cover h-screen w-screen "
+            className="object-cover h-screen w-screen"
+            // style={{ backgroundAttachment: "fixed" }}
           />
         </a>
         <div className="absolute font-serif top-3/4 left-1/4 transform -translate-x-1/2 -translate-y-1/3 text-white lg:text-6xl font-extrabold sm:text-3xl md:text-4xl">
           The dating app<br></br> designed to be deleted
         </div>
-      </div>
+      </div> */}
       <div>
         <div className="my-10">
           <figure className="max-w-screen-md mx-auto text-center">
