@@ -80,19 +80,25 @@ const CounsellingPage = () => {
             });
     }
 
-    return <div style={{ position: 'relative', height: '100vh' }}>
-        <MainContainer>
-            <ChatContainer>
-                <MessageList typingIndicator={typing ? <TypingIndicator content='Thinking....' /> : null}>
-                    {messages.map((message, i) => {
-                        return <Message key={i} model={message} />
-                    })}
-                </MessageList>
+    return (
+      <div style={{ position: "relative", height: "100vh" }} className="lg:px-20">
+        <MainContainer style={{border:'none'}}>
+          <ChatContainer>
+            <MessageList
+              typingIndicator={
+                typing ? <TypingIndicator content="Thinking...." /> : null
+              }
+            >
+              {messages.map((message, i) => {
+                return <Message key={i} model={message} />;
+              })}
+            </MessageList>
 
-                <MessageInput placeholder='Type here' onSend={handleSend} />
-            </ChatContainer>
+            <MessageInput placeholder="Type here" onSend={handleSend} />
+          </ChatContainer>
         </MainContainer>
-    </div>
+      </div>
+    );
 };
 
 export default CounsellingPage;

@@ -36,8 +36,8 @@ const UserProfile = () => {
   
 
   return (
-    <div className="px-0 2xl:px-10 flex-col">
-      <div className="w-full md:h-60 flex flex-col gap-5 items-center md:flex-row bg-gray-100 dark:bg-gradient-to-r from-[#020b19] via-[#071b3e] to-[#020b19]  mt-5 mb-10 rounded-md p-5 md:px-20">
+    <div className="lg:px-20 flex-col overflow-hidden overflow-y-auto no-scrollbar">
+      <div className="w-full md:h-60 flex flex-col gap-5 items-center md:flex-row bg-gray-100 dark:bg-gradient-to-r from-[#020b19] via-[#071b3e] to-[#020b19]  lg:mt-5 mb-10 rounded-md p-5 md:px-20 overflow-y-auto no-scrollbar">
         <img
           src={user?.image || NoProfile}
           alt="Writer"
@@ -89,11 +89,10 @@ const UserProfile = () => {
                 </span>
               </div>
             )}
-
           </div>
         </div>
       </div>
-      <div className="w-full overflow-y-auto flex gap-2 lg:gap-4 pt-5 pb-10 h-full">
+      <div className="w-full flex gap-2 lg:gap-4 pt-5 pb-10 h-full overflow-y-auto no-scrollbar">
         <Postgrid id={id} />
       </div>
     </div>

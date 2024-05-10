@@ -22,11 +22,12 @@ function Layout() {
   const { token } = useSelector((state) => state.user);
 
   return token ? (
-    <div className="w-full flex flex-row min-h-screen min-w-[650px]">
-      <div className="flex-none lg:w-64 md:1/4 overflow-hidden h-screen fixed ">
+    <div className="w-full flex flex-row min-h-screen min-w-[484px] ">
+      {/* <div className="flex-none lg:w-20 md:1/4 overflow-hidden h-screen fixed "> */}
+      <div className="flex md:1/4 overflow-hidden h-screen ">
         <Sidebar1 />
       </div>
-      <div className="flex-1 pl-64 overflow-y-auto">
+      <div className="flex-1 overflow-y-auto">
         <Outlet />
       </div>
     </div>

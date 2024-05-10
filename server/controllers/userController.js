@@ -76,7 +76,7 @@ export const updateUser = async (req, res, next) => {
       new: true,
     });
 
-    console.log(user)
+    // console.log(user)
 
     await user.populate({ path: "friends", select: "-password" });
     const token = createJWT(user?._id);

@@ -61,6 +61,7 @@ const Messages = () => {
     });
     dispatch(setReceiver({ id: id, image: image, name: name }));
     dispatch(setMessage(res));
+    window.location.reload();
   };
 
   const handleMessageSubmit = async (e) => {
@@ -87,9 +88,12 @@ const Messages = () => {
 
   return (
     <div>
-      <div className="sm:w-full w-full h-full flex flex-col overflow-hidden px-4 min-w-[700px]">
+      <div className="w-full h-full flex flex-col overflow-hidden lg:px-20 min-w-[700px]">
         <div className="flex flex-row">
-          <div className="w-2/5 border h-screen bg-gray-100 overflow-y-auto no-scrollbar">
+          <div
+            className="w-2/5 border h-screen bg-gray-100 overflow-y-auto no-scrollbar"
+            style={{ width: "27rem" }}
+          >
             <div className="flex ml-3 items-center my-1 mx-2">
               <div className="border border-blue-200 rounded-full">
                 <img
@@ -104,12 +108,14 @@ const Messages = () => {
               </div>
             </div>
             <div className="mt-2 mb-2 pb-2">
+              <span className="pl-4">
               Messages
+              </span>
               <hr />
               <div className="text-blue-200 text-lg">
                 {friendsInfo.map(({ name, image, _id }) => (
                   <div
-                    className="flex cursor-pointer items-center py-3 border-b border-b-gray-300 hover:bg-gray-200"
+                    className="flex rounded-2xl px-3 cursor-pointer items-center py-3 border-b border-b-gray-300 hover:bg-gray-200"
                     key={_id}
                     onClick={() => handleClick(_id, image, name)}
                   >
@@ -132,10 +138,9 @@ const Messages = () => {
               </div>
             </div>
           </div>
-
           {receiver ? (
             <div className="w-4/5 bg-white flex flex-col items-center">
-              <div className="w-full h-[100px] bg-gray-100 flex items-center px-14">
+              <div className="w-full h-[16vh] bg-gray-100 flex items-center px-14">
                 <div className="cursor-pointer">
                   <img
                     src={image}
@@ -149,7 +154,7 @@ const Messages = () => {
               </div>
 
               <div
-                className="w-full overflow-y-auto pb-2"
+                className="w-full overflow-y-auto"
                 style={{ height: "75vh" }}
               >
                 {messages.map(({ message, sender, _id }) => (
@@ -169,7 +174,7 @@ const Messages = () => {
               </div>
               <div className="w-full bottom-0">
                 <form
-                  className="p-2 mb-2 flex flex-row w-full"
+                  className="flex flex-row w-full"
                   onSubmit={handleMessageSubmit}
                 >
                   <input

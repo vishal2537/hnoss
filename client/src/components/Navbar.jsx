@@ -46,14 +46,14 @@ const MobileMenu = ({ user, token,signOut }) => {
           <Logo />
           <ul className="flex flex-col gap-4 text-base text-black">
             <li onClick={toggleMenu}>
-              <Link to="/">Home</Link>
+              <Link to="/home">Home</Link>
             </li>
             <li onClick={toggleMenu}>
-              <Link to="/">Contact</Link>
+              <Link to="/home">Contact</Link>
             </li>
-            <li onClick={toggleMenu}>
+            {/* <li onClick={toggleMenu}>
               <Link to="/">About</Link>
-            </li>
+            </li> */}
           </ul>
           <div className="flex gap-2 items-center">
             {token ? (
@@ -70,7 +70,7 @@ const MobileMenu = ({ user, token,signOut }) => {
                       {getInitials(user?.name)}
                     </span>
                   )}
-                  <span className="font-medium text-white">
+                  <span className="font-medium text-black">
                     {user?.name}
                   </span>
                 </div>

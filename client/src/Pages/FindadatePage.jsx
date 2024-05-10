@@ -120,11 +120,11 @@ function FindadatePage() {
 
   return (
     <div>
-      <div className="w-full flex-col pb-0 lg:px-10 sm:px-0 bg-bgColor lg:rounded-lg h-screen overflow-hidden">
+      <div className="w-full flex-col pb-0 lg:px-20 sm:px-0 bg-bgColor lg:rounded-lg h-screen overflow-hidden">
         <div className="flex flex-row justify-center">
           <TopBar />
         </div>
-        <div className=" sm:w-full py-8 px-20 h-full flex flex-col gap-6 overflow-y-auto rounded ">
+        <div className=" sm:w-full py-8 h-full flex flex-col gap-6 overflow-y-auto rounded ">
           <div className="flex flex-row justify-between   ">
             <div className="flex flex-col ">
               <div className="cardContainer flex justify-center rounded-3xl ">

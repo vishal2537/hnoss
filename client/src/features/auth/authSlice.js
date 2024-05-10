@@ -118,5 +118,5 @@ const authSlice = createSlice({
 });
 export default authSlice.reducer;
 
-export const{login, logout, register, updateProfile, load, loaded,addlikes} = authSlice.actions;
+export const{login, logout, register, updateProfile, load, loaded, addlikes} = authSlice.actions;
 

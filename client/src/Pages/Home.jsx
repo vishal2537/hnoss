@@ -136,11 +136,11 @@ const Home = () => {
 
   return (
     <>
-      <div className="w-full lg:px-10 flex-col lg:pb-10 bg-bgColor lg:rounded-lg h-screen overflow-hidden no-scrollbar">
+      <div className="w-full lg:px-20 flex-col h-screen overflow-hidden no-scrollbar">
         <TopBar />
 
         <div className="w-full flex gap-2 lg:gap-4 pt-5 pb-10 h-full ">
-          <div className="lg:w-3/5 sm:w-full h-full flex flex-col gap-6 overflow-y-auto no-scrollbar rounded-lg shadow-sm">
+          <div className="lg:w-2/3 sm:w-full h-full flex flex-col gap-6 overflow-y-auto no-scrollbar rounded-lg shadow-sm">
             <form
               onSubmit={handlePostSubmit}
               className="bg-primary px-4 rounded-lg shadow-lg"

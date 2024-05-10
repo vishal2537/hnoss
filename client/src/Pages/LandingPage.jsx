@@ -74,7 +74,7 @@ const LandingPage = () => {
           </figure>
         </div>
         <div className="mx-auto w-full  bg-gray-100">
-          <div className="grid grid-cols-4 gap-8 lg:ml-10  px-10 py-6 lg:py-8 md:grid-cols-4">
+          <div className="grid grid-cols-4 gap-8 lg:ml-10 px-10 py-6 lg:py-8 md:grid-cols-4">
             <div>
               <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase ">
                 Company

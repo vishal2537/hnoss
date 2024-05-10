@@ -39,7 +39,7 @@ export const register = async (req, res, next) => {
     }
 
     const hashedPassword = await hashString(password);
-    console.log("....pass : "+hashedPassword)
+    // console.log("....pass : "+hashedPassword)
 
     const user = await Users.create({
       name: firstName + " " + lastName,
