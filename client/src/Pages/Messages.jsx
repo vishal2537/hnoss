@@ -1,3 +1,96 @@
+// import React, { useEffect, useState } from "react";
+// import { useSelector, useDispatch } from "react-redux";
+// import { getUserInfo } from "../features/post/postActions";
+// import {
+//   getMessages,
+//   sendMessage,
+// } from "../features/conversation/conversationAction";
+// import {
+//   setMessage,
+//   setReceiver,
+// } from "../features/conversation/conversationSlice";
+
+// const Messages = () => {
+//   const dispatch = useDispatch();
+//   const { user, token, id } = useSelector((state) => state.user);
+//   const { receiver, image, name, messages } = useSelector(
+//     (state) => state.conversations
+//   );
+//   const [data, setData] = useState({
+//     sender: "",
+//     receiver: "",
+//     message: "",
+//   });
+
+//   const [friendsInfo, setFriendsInfo] = useState([]);
+
+//   useEffect(() => {
+//     const fetchFriendsInfo = async () => {
+//       const friendIds = user.friends;
+//       const promises = friendIds.map((friendId) =>
+//         getUserInfo(token, friendId)
+//       );
+//       const friendsData = await Promise.all(promises);
+//       setFriendsInfo(friendsData);
+//     };
+//     fetchFriendsInfo();
+//   }, []);
+
+//   useEffect(() => {
+//     const interval = setInterval(() => {
+//       if (receiver) {
+//         // Fetch messages if receiver is selected
+//         getMessages({
+//           token: token,
+//           sender: id,
+//           receiver: receiver,
+//         }).then((res) => {
+//           dispatch(setMessage(res));
+//         });
+//       }
+//     }, 1000); // Fetch messages every 5 seconds (adjust interval as needed)
+
+//     return () => clearInterval(interval); // Cleanup interval on unmount
+//   }, [receiver, dispatch, id, token]);
+
+//   const handleClick = async (id, image, name) => {
+//     const res = await getMessages({
+//       token: token,
+//       sender: user._id,
+//       receiver: id,
+//     });
+//     dispatch(setReceiver({ id: id, image: image, name: name }));
+//     dispatch(setMessage(res));
+//   };
+//   // let count = 0;
+//   // if (count == 0) {
+//   //   window.location.reload();
+//   //   count =1;
+//   // }
+
+//   const handleMessageSubmit = async (e) => {
+//     e.preventDefault();
+//     const newData = {
+//       token: token,
+//       sender: id,
+//       message: data.message,
+//       receiver: receiver,
+//     };
+//     const res1 = await sendMessage(newData);
+//     const res2 = await getMessages({
+//       token: token,
+//       sender: id,
+//       receiver: receiver,
+//     });
+//     dispatch(setMessage(res2));
+//     setData({ ...data, message: "" });
+//   };
+
+//   const handleChange = (e) => {
+//     setData({ ...data, message: e.target.value });
+//   };
+
+
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getUserInfo } from "../features/post/postActions";
@@ -25,6 +118,10 @@ const Messages = () => {
   const [friendsInfo, setFriendsInfo] = useState([]);
 
   useEffect(() => {
+    
+  },[])
+
+  useEffect(() => {
     const fetchFriendsInfo = async () => {
       const friendIds = user.friends;
       const promises = friendIds.map((friendId) =>
@@ -34,7 +131,7 @@ const Messages = () => {
       setFriendsInfo(friendsData);
     };
     fetchFriendsInfo();
-  }, []);
+  }, [user.friends, token]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -48,7 +145,7 @@ const Messages = () => {
           dispatch(setMessage(res));
         });
       }
-    }, 1000); // Fetch messages every 5 seconds (adjust interval as needed)
+    }, 1000); // Fetch messages every 5 seconds
 
     return () => clearInterval(interval); // Cleanup interval on unmount
   }, [receiver, dispatch, id, token]);
@@ -61,7 +158,6 @@ const Messages = () => {
     });
     dispatch(setReceiver({ id: id, image: image, name: name }));
     dispatch(setMessage(res));
-    window.location.reload();
   };
 
   const handleMessageSubmit = async (e) => {
@@ -72,13 +168,8 @@ const Messages = () => {
       message: data.message,
       receiver: receiver,
     };
-    const res1 = await sendMessage(newData);
-    const res2 = await getMessages({
-      token: token,
-      sender: id,
-      receiver: receiver,
-    });
-    dispatch(setMessage(res2));
+    await sendMessage(newData);
+    // No need to fetch messages again here, they will be fetched automatically in the interval
     setData({ ...data, message: "" });
   };
 
@@ -108,9 +199,7 @@ const Messages = () => {
               </div>
             </div>
             <div className="mt-2 mb-2 pb-2">
-              <span className="pl-4">
-              Messages
-              </span>
+              <span className="pl-4">Messages</span>
               <hr />
               <div className="text-blue-200 text-lg">
                 {friendsInfo.map(({ name, image, _id }) => (

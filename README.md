@@ -73,24 +73,17 @@ Now you're all set to explore Hnoss and start making meaningful connections!
 
 ### Preview
 **Landing Page**: ![Authentication](images/LandingPage.png)
-
 **Footer**: ![footer](images/footer.png)
-
 **Login Page**: ![loginpage](images/loginpage.png)
 **Signup Page**: ![signuppage](images/signupPage.png)
-
 **Home Page**: ![homepage](images/homePage.png)
-
 **Find a date**: ![findadate](images/find-a-date.png)
-
 **Message**: ![message](images/messagePage.png)
-
 **Counselling Page**: ![cp](images/counsellingPage.png)
-
 **Profile Page**: ![pp](images/profilePage.png)
-
 **Friend List**: ![pp](images/friendList.png)
-
 **Search Bar**: ![pp](images/searchBar.png)
+**Edit Profile**: ![pp](images/editProfile.png)
+**Side Bar**: ![pp](images/sidebar.png)
 
 <!-- **Note**:  -->

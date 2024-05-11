@@ -1,5 +1,5 @@
 import { Button, Modal } from "flowbite-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoMdSettings } from "react-icons/io";
 import { BiImages } from "react-icons/bi";
 import { useSelector } from "react-redux";
@@ -41,8 +41,23 @@ function Settings() {
         state: state,
       };
       const updatedUser = await updateUser(token, userData);
-      console.log("User updated:", updatedUser);
+
+      // Update local storage data
+      const userFromStorage = JSON.parse(localStorage.getItem("user"));
+      localStorage.setItem(
+        "user",
+        JSON.stringify({
+          ...userFromStorage,
+          user: {
+            ...userFromStorage.user,
+            ...userData,
+          },
+        })
+      );
+
+      // console.log("User updated:", updatedUser);
       setOpenModal(false);
+      window.location.reload();
     } catch (error) {
       console.error("Error updating user:", error);
       // Handle error

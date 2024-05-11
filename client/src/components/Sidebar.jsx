@@ -6,7 +6,7 @@ import { FaUserGroup } from "react-icons/fa6";
 import { AiFillMessage, AiFillHome } from "react-icons/ai";
 import { BiLogOut } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../features/auth/authSlice";
+import { logout, toggleSidebar } from "../features/auth/authSlice"; // Import toggleSidebar action
 import { useNavigate } from "react-router-dom";
 import { MdOutlineMenu } from "react-icons/md";
 
@@ -18,26 +18,68 @@ function getInitials(fullName) {
 }
 
 const Sidebar1 = () => {
-  const { user } = useSelector((state) => state.user);
+  const { user, sidebarOpen } = useSelector((state) => state.user); // Get sidebarOpen state from Redux
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [isOpen, setIsOpen] = useState(true);
 
   const handleToggleSidebar = () => {
-    console.log(10)
-    setIsOpen(!isOpen);
+    dispatch(toggleSidebar()); // Dispatch toggleSidebar action
   };
 
   const handleSubmit = async () => {
     dispatch(logout());
     navigate("/");
   };
+
   const id = user._id;
-  return isOpen ? (
+
+  // import { useState } from "react";
+  // import { Sidebar } from "flowbite-react";
+  // import { Link } from "react-router-dom";
+  // import { FaHeart } from "react-icons/fa";
+  // import { FaUserGroup } from "react-icons/fa6";
+  // import { AiFillMessage, AiFillHome } from "react-icons/ai";
+  // import { BiLogOut } from "react-icons/bi";
+  // import { useDispatch, useSelector } from "react-redux";
+  // import { logout } from "../features/auth/authSlice";
+  // import { useNavigate } from "react-router-dom";
+  // import { MdOutlineMenu } from "react-icons/md";
+
+  // function getInitials(fullName) {
+  //   const names = fullName.split(" ");
+  //   const initials = names.slice(0, 2).map((name) => name[0].toUpperCase());
+  //   const initialsStr = initials.join("");
+  //   return initialsStr;
+  // }
+
+  // const Sidebar1 = () => {
+  //   const { user } = useSelector((state) => state.user);
+  //   const dispatch = useDispatch();
+  //   const navigate = useNavigate();
+  //   const [isOpen, setIsOpen] = useState(true);
+
+  //   const handleToggleSidebar = () => {
+  //     // console.log(10);
+  //     setIsOpen(!isOpen);
+  //   };
+
+    const handleLinkClick = () => {
+      window.location.reload();
+    };
+
+  //   const handleSubmit = async () => {
+  //     dispatch(logout());
+  //     navigate("/");
+  //   };
+  //   const id = user._id;
+
+  return sidebarOpen ? (
     <>
       <Sidebar
-        open={isOpen}
-        onClose={() => setIsOpen(false)}
+        // open={isOpen}
+        // onClose={() => setIsOpen(false)}
+        open={sidebarOpen} // Use sidebarOpen state to control sidebar opening
+        onClose={() => dispatch(toggleSidebar())}
         className="bg-gray-100"
         style={{ width: "286px" }}
       >
@@ -52,9 +94,13 @@ const Sidebar1 = () => {
         </div>
         <Sidebar.Items>
           <Sidebar.ItemGroup>
-            <div className="bg-gray-200 hover:bg-white rounded-xl my-1 text-black ">
+            <div
+              className="bg-gray-200 hover:bg-white rounded-xl my-1 text-black "
+              // onClick={handleLinkClick}
+            >
               <Link
                 to="/home"
+                // onClick={handleLinkClick}
                 className="flex items-center p-4 text-black  rounded-lg group"
                 style={{ textDecoration: "none" }}
               >
@@ -63,7 +109,10 @@ const Sidebar1 = () => {
               </Link>
             </div>
 
-            <div className="bg-gray-200 hover:bg-white rounded-xl my-1 ">
+            <div
+              className="bg-gray-200 hover:bg-white rounded-xl my-1 "
+              onClick={handleLinkClick}
+            >
               <Link
                 to="/findadate"
                 className="flex items-center p-4 text-black rounded-lg group"
@@ -76,7 +125,10 @@ const Sidebar1 = () => {
               </Link>
             </div>
 
-            <div className="bg-gray-200 hover:bg-white rounded-xl my-1 ">
+            <div
+              className="bg-gray-200 hover:bg-white rounded-xl my-1 "
+              onClick={handleLinkClick}
+            >
               <Link
                 to="/messages"
                 className="flex items-center p-4 text-black rounded-lg group"
@@ -89,7 +141,10 @@ const Sidebar1 = () => {
               </Link>
             </div>
 
-            <div className="bg-gray-200 hover:bg-white rounded-xl my-1 ">
+            <div
+              className="bg-gray-200 hover:bg-white rounded-xl my-1 "
+              onClick={handleLinkClick}
+            >
               <Link
                 to="/counselling"
                 className="flex items-center p-4 text-black rounded-lg group"
@@ -116,6 +171,7 @@ const Sidebar1 = () => {
 
             <Link
               to={"/profile/" + id}
+              // onClick={handleLinkClick}
               className="bottom-0 pl-5 pb-5 mb-5 absolute rounded-lg  group"
             >
               <div className="flex gap-1 items-center cursor-pointer ">
@@ -143,8 +199,10 @@ const Sidebar1 = () => {
     <>
       <Sidebar
         aria-label="Default sidebar example"
-        open={isOpen}
-        onClose={() => setIsOpen(false)}
+        // open={isOpen}
+        // onClose={() => setIsOpen(false)}
+        open={sidebarOpen} // Use sidebarOpen state to control sidebar opening
+        onClose={() => dispatch(toggleSidebar())}
         className="bg-gray-100"
       >
         <div className="flex flex-row items-center pl-4 py-4">
@@ -158,6 +216,7 @@ const Sidebar1 = () => {
             <div className="bg-gray-200 hover:bg-white rounded-xl my-1 text-black ">
               <Link
                 to="/home"
+                // onClick={handleLinkClick}
                 className="flex items-center p-4 text-black  rounded-lg group"
                 style={{ textDecoration: "none" }}
               >
@@ -165,7 +224,10 @@ const Sidebar1 = () => {
               </Link>
             </div>
 
-            <div className="bg-gray-200 hover:bg-white rounded-xl my-1 ">
+            <div
+              className="bg-gray-200 hover:bg-white rounded-xl my-1 "
+              onClick={handleLinkClick}
+            >
               <Link
                 to="/findadate"
                 className="flex items-center p-4 text-black rounded-lg group"
@@ -175,7 +237,10 @@ const Sidebar1 = () => {
               </Link>
             </div>
 
-            <div className="bg-gray-200 hover:bg-white rounded-xl my-1 ">
+            <div
+              className="bg-gray-200 hover:bg-white rounded-xl my-1 "
+              onClick={handleLinkClick}
+            >
               <Link
                 to="/messages"
                 className="flex items-center p-4 text-black rounded-lg group"
@@ -185,7 +250,10 @@ const Sidebar1 = () => {
               </Link>
             </div>
 
-            <div className="bg-gray-200 hover:bg-white rounded-xl my-1 ">
+            <div
+              className="bg-gray-200 hover:bg-white rounded-xl my-1 "
+              onClick={handleLinkClick}
+            >
               <Link
                 to="/counselling"
                 className="flex items-center p-4 text-black rounded-lg group"
@@ -206,6 +274,7 @@ const Sidebar1 = () => {
 
             <Link
               to={"/profile/" + id}
+              // onClick={handleLinkClick}
               className="bottom-0 pl-3 pb-5 mb-5 absolute rounded-lg  group"
             >
               <div className="flex gap-1 items-center cursor-pointer ">
