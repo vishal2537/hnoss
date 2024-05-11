@@ -84,6 +84,6 @@ Now you're all set to explore Hnoss and start making meaningful connections!
 **Friend List**: ![pp](images/friendList.png)
 **Search Bar**: ![pp](images/searchBar.png)
 **Edit Profile**: ![pp](images/editProfile.png)
-**Side Bar**: ![pp](images/sidebar.png)
+**Sidebar**: ![pp](images/sidebar.png)
 
 <!-- **Note**:  -->
